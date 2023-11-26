@@ -1,0 +1,266 @@
+body{
+    background-color: #d9d9d9;
+}
+
+
+.left h2{ 
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.subscribers_box ,
+.subscriptions_box
+{
+    display: none;
+}
+
+
+.sub_choose{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.subscription {
+    background-color: #FFFFFF;
+    padding: 15px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.20);
+    transition: all 0.3s ease;
+    transform-origin: left center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subscription:hover {
+   padding-left: 30px;
+}
+
+.subscription img {
+
+    width: 50px;
+    height: 50px;
+    margin : 5px 10px;
+    border-radius: 50%;  
+}
+
+.subscription h3 {
+    margin: 0;  
+    color: #333333;
+}
+
+.subscription a {
+    text-decoration: none;
+    color: #333333;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.subscription a:hover {
+    text-decoration: underline;
+}
+
+
+
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+#back {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#back a {
+    text-decoration: none;
+    color: #0066ff;
+    font-size: 20px;
+    border: 2px solid #0066ff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#back a:hover {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+
+/* subscribers */
+.subscriber {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform-origin: left center;
+}
+
+.subscriber:hover {
+    transform: scale(1.05);
+}
+
+.subscriber img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;  
+}
+
+.subscriber h3 {
+    margin: 0;  
+    color: #333333;
+}
+
+.subscriber a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.subscriber a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    padding: 0px 12px;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 16px;
+    font-size: 15px;
+    height: 32px;
+    line-height: 32px;
+}
+
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+#back {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#back a {
+    text-decoration: none;
+    color: #0066ff;
+    font-size: 20px;
+    border: 2px solid #0066ff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#back a:hover {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+
+
+
+/* sidebar */
+.container {
+    margin: 0 auto;
+      display: grid;
+      grid-template-columns: 8fr 2fr;
+      grid-row-gap: 20px;
+      column-gap:30px;
+}
+
+.sidebar {
+    position: sticky;
+    width: 150px; 
+    top: 110px; 
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid #d9d9d9;
+    background-color: white;
+    padding: 20px;
+    z-index: 10;
+}
+
+.rolling-box{
+    margin: auto;
+  }
+  .rolling-item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+  }
+  .rolling-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+    
+  }
+  .rolling-center{
+    position: relative;
+    top: -5px;
+  }
+
+
+.selected2{
+    display: block;
+}
+
+
+.selected{
+    display: block;
+   background-color: #000;
+   color: #fff;
+}
+
+/* right */
+
+#right-sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    width: 70%;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 110px;
+    row-gap: 30px;
+   
+  
+  }
+  .right_avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  #right-subscribe-button {
+    color: #ffffff;
+    width: 110px;
+    height: 32px;
+    background-color: #000000;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.5s;
+   
+  }
+  
+  #right-link {
+    font-size: 25px;
+    text-align: center;
+  }

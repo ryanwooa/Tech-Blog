@@ -1,0 +1,198 @@
+<link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet"/>
+<script src="http://127.0.0.1:3000/js/article-edit.js"></script>
+
+<div class="container">
+
+  <h1 class="create">Create Center</h1>
+
+  <div id="article-editor">
+
+
+  <div class="title-container">
+    <div class="label">Title</div>
+    <input id="edit-title" type="text" value="{{title}}" required maxlength="50">
+    <span id="counter"></span>
+    <div id="share"> <i>Share all your ideas !</i> </div>
+  </div>
+
+
+    <div id="editor—wrapper">
+      <div id="toolbar-container"><!-- toolbar --></div>
+      <div id="editor-container" style.z-index="1"><!-- editor --></div>
+    </div>
+
+  <div class="choose-cover">Choose Cover:</div>
+  <div class="image-container" >
+
+    <label>
+    <input type="radio" name="cover" value="1" id="cover1" checked >
+    <img class="article_cover" src="../images/cover/cover1.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="2" id="cover2" >
+    <img class="article_cover" src="../images/cover/cover2.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="3" id="cover3" >
+    <img class="article_cover" src="../images/cover/cover3.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="4" id="cover4" >
+    <img class="article_cover" src="../images/cover/cover4.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="5" id="cover5" >
+    <img class="article_cover" src="../images/cover/cover5.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="6" id="cover6" >
+    <img class="article_cover" src="../images/cover/cover6.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="7" id="cover7" >
+    <img class="article_cover" src="../images/cover/cover7.jpg" alt="Cover image">
+    </label>
+
+    <label>
+    <input type="radio" name="cover" value="8" id="cover8" >
+    <img class="article_cover" src="../images/cover/cover8.jpg" alt="Cover image">
+    </label>
+  </div>
+
+  <div id="btns">
+        {{#if status}}
+          <button id="submit_btn" data-articleId={{article_id}}>update</button>
+        {{else}}
+          <button id="submit_btn">submit</button>
+        {{/if}}
+        
+      <div class="cancelbtn">
+      {{#if article_id}}
+        <a href="/articles/{{article_id}}" style="color: white;">cancel</a>
+      {{else}}
+        <a href="/account/{{user.user_id}}" style="color: white;">cancel</a>
+      {{/if}}
+      </div>
+</div>
+
+  </div>
+</div>
+
+
+
+{{!-- editor code --}}
+<script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+<script>
+const { createEditor, createToolbar, i18nChangeLanguage } = window.wangEditor
+
+{{!-- set English --}}
+i18nChangeLanguage('en');
+
+
+const editorConfig = {
+    placeholder: 'Type here...',
+    MENU_CONF: {
+      uploadImage: {
+        server: '/api/upload-img',
+        // server: '/api/upload-img-10s', // test timeout
+        // server: '/api/upload-img-failed', // test failed
+        // server: '/api/xxx', // test 404
+
+        timeout: 5 * 1000, // 5s
+        fieldName: 'custom-fileName',
+        headers: { Accept: 'text/x-json' },
+        maxFileSize: 5 * 1024 * 1024, // 5M
+        maxNumberOfFiles: 1,
+        allowedFileTypes: ['image/*'],
+        withCredentials: true,
+       
+        onBeforeUpload(file) {
+          console.log('onBeforeUpload', file)
+
+          return file // will upload this file
+          // return false // prevent upload
+        },
+        onProgress(progress) {
+          console.log('onProgress', progress)
+        },
+        onSuccess(file, res) {
+          console.log('onSuccess', file, res)
+        },
+        onFailed(file, res) {
+          alert(res.message)
+          console.log('onFailed', file, res)
+        },
+        onError(file, err, res) {
+          alert(err.message)
+          console.error('onError', file, err, res)
+        },
+      },
+    },
+    
+    onChange(editor) {
+      const html = editor.getHtml()
+      console.log('editor content', html)
+      // 也可以同步到 <textarea>
+    }
+}
+
+const editor = createEditor({
+    selector: '#editor-container',
+    html: '{{{content}}}',
+    config: editorConfig,
+    mode: 'default', // or 'simple'
+})
+
+const toolbarConfig = {
+  toolbarKeys: [
+        "headerSelect",
+        "|",
+        "bold",
+        "underline",
+        "italic" ,
+        "fontSize",
+        "color",
+        "bgColor",
+        "|",
+        "bulletedList",
+        "numberedList",
+        {
+          iconSvg:"<svg viewBox=\"0 0 1024 1024\"><path d=\"M768 793.6v102.4H51.2v-102.4h716.8z m204.8-230.4v102.4H51.2v-102.4h921.6z m-204.8-230.4v102.4H51.2v-102.4h716.8zM972.8 102.4v102.4H51.2V102.4h921.6z\"></path></svg>",
+          key:"group-justify",
+          title: "Justify",
+          menuKeys:['justifyLeft', 'justifyRight', 'justifyCenter', 'justifyJustify']
+        },
+        "|",
+        "emotion",
+        "insertLink",
+         {
+          iconSvg:"<svg viewBox=\"0 0 1024 1024\"><path d=\"M959.877 128l0.123 0.123v767.775l-0.123 0.122H64.102l-0.122-0.122V128.123l0.122-0.123h895.775zM960 64H64C28.795 64 0 92.795 0 128v768c0 35.205 28.795 64 64 64h896c35.205 0 64-28.795 64-64V128c0-35.205-28.795-64-64-64zM832 288.01c0 53.023-42.988 96.01-96.01 96.01s-96.01-42.987-96.01-96.01S682.967 192 735.99 192 832 234.988 832 288.01zM896 832H128V704l224.01-384 256 320h64l224.01-192z\"></path></svg>",
+          key:"group-image",
+          title: 'Images', 
+          menuKeys: ["insertImage", "uploadImage"] 
+        },
+        "|",
+        "undo",
+        "redo"
+
+
+  ]
+ 
+ }
+
+const toolbar = createToolbar({
+    editor,
+    selector: '#toolbar-container',
+    config: toolbarConfig,
+    mode: 'default', // or 'simple'
+})
+
+
+
+</script>

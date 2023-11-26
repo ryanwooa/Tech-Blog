@@ -1,0 +1,89 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/article.js"></script>
+<script src="/js/likeAndDislike.js"></script>
+<script src="/js/subscription.js"></script>
+
+<div class="sidebar-article">
+    <div><a href="#article-com"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M263.692-423.077h432.616V-460H263.692v36.923Zm0-118.769h432.616v-36.923H263.692v36.923Zm0-118.769h432.616v-36.924H263.692v36.924Zm570.154 494.462L714.462-285.538h-526.94q-25.767 0-43.568-17.801-17.8-17.8-17.8-43.586v-426.15q0-25.786 17.8-43.586 17.801-17.801 43.569-17.801h584.954q25.768 0 43.569 17.801 17.8 17.8 17.8 43.69v606.818ZM163.077-322.462v-475.076 475.076Zm567.115 0 66.731 67v-517.461q0-9.231-7.692-16.923-7.692-7.692-16.923-7.692H187.692q-9.231 0-16.923 7.692-7.692 7.692-7.692 16.923v425.846q0 9.231 7.692 16.923 7.692 7.692 16.923 7.692h542.5Z"/></svg></a></div>
+   
+    <div><a href="#container"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M461.731-144.923v-438.154l-124 124-26.962-25.846L480-654.154l168.616 168.616-25.962 26.461-124-124v438.154h-36.923ZM184.192-778.769v-36.923h592v36.923h-592Z"/></svg></a></div>
+</div>
+<div class="gray-bgc"></div>
+<div id="container">
+    <div class="article-container">
+        <div class="article-image">
+            <img src="{{article.cover_url}}" alt="article image" id="cover">
+        </div>
+        <div class="article-title">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="article-userNtime">
+            <div class="article-user">
+                <span><a href="../account/{{authorId}}"><img src="{{article.avatar_url}}" width="35px" height="35px" alt=""></a></span>
+                <span><a href="../account/{{authorId}}">{{author}} </a></span>
+            </div>
+            <div class="time">
+                <span>{{datetime}}</span>
+            </div>
+            
+
+        </div>
+
+        <div class="article-content" data-id={{id}}>
+            <div class="article-text"> {{{content}}}</div>
+        </div>
+        <div class="line"></div>
+        <div class="after-line">
+            <div class="article-user">
+                <span><a href="../account/{{authorId}}"><img src="{{article.avatar_url}}" width="35px" height="35px" alt=""></a></span>
+                <span><a href="../account/{{authorId}}">{{author}}</a></span>
+               <button id="subscribe-button" class="_btn" data-authorId={{authorId}}></button>
+            </div>
+        <div class="article-subscription">
+              
+        <div class="article-likes">
+            {{#if canDelete}}
+                <span class="afterline-edit" >
+                    <a href="/article_editor/{{id}}" > Edit </a>
+                </span>
+                <span class="afterline-edit">
+                    <a id="delete-button">Delete</a>
+                </span>
+            {{/if}}
+
+          <button id="like-button" data-id="{{id}}"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" id="likeicon"   
+           {{#if userHasLiked}}
+          class="liked"
+            {{/if}}     ><path d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Z"/></svg></button><span id="article-likes">{{likes}}</span>
+             <a href="#article-com"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" ><path d="M833.846-166.153 714.462-285.538h-526.94q-25.767 0-43.568-17.801-17.8-17.8-17.8-43.586v-426.15q0-25.786 17.8-43.586 17.801-17.801 43.569-17.801h584.954q25.768 0 43.569 17.801 17.8 17.8 17.8 43.69v606.818ZM163.077-322.462v-475.076 475.076Zm567.115 0 66.731 67v-517.461q0-9.231-7.692-16.923-7.692-7.692-16.923-7.692H187.692q-9.231 0-16.923 7.692-7.692 7.692-7.692 16.923v425.846q0 9.231 7.692 16.923 7.692 7.692 16.923 7.692h542.5Z"/></svg> <span id="article-com">{{article.comment_cnt}}</span></a> 
+
+        </div>
+        </div>
+      </div>
+
+    
+    </div>
+</div>
+
+<div class="bgc-g clearfix" >
+    <div class="comment-area" id="commet-area">
+       
+        <div ><span id="comment-title"><h2> Comments</h2> </span></div>
+        <div id="submit_comment" class="clearfix" >
+            <form action="submit_comment" method="POST">
+                <textarea name="comment" id="comment" cols="20" rows="5" placeholder="comment here"></textarea>
+                {{!-- <input type="text" name="comment" id="comment" placeholder="comment here"> --}}
+                <input type="hidden" name="hidden_article_id" value={{id}}>
+                <button type="submit" class="_btn">Comment</button>
+
+            </form>
+        </div>
+        <button id="show_comments_btn">
+                   Show comments
+        </button>
+            
+        <div id="comments-container" ></div>
+        
+    </div>
+</div>
+

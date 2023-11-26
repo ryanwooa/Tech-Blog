@@ -1,0 +1,40 @@
+
+<link rel="stylesheet" href="./css/login.css">
+<div class="container">
+   
+    {{! Display a toast message if one was provided. }}
+    {{#if toastMessage}}
+   
+    <p>{{toastMessage}}</p>
+   
+    {{/if}}
+    <div class="box">
+
+        <h1>Login</h1>
+        <form action="./login" method="POST">
+        <div class="uname">
+            <div class="flex-col mb">
+                <label for="txtUsername">username</label>
+                <input type="text" name="username" id="txtUsername" required>
+            </div>
+            </div>
+            
+            <div class="pwd">
+            <div class="flex-col mb">
+                <label for="txtPassword">password</label>
+                <input type="password" name="password" id="txtPassword" required>
+            </div>
+            </div>
+
+            <div class="flex-row justify-sb align-center">
+                <button type="submit">Log in</button>
+            </div>
+        </form>
+        <!-- Separator -->
+        <div class="separator"></div>
+
+    
+        <a  class="createnew" href="./signup">Create new account</a>
+   
+    </div>
+</div>

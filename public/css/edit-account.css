@@ -1,0 +1,394 @@
+/* edit-account.css */
+
+body {
+    background-image: url("/images/signup.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 0;
+  }
+  
+  .username-valid {
+    color: green;
+  }
+  
+  .username-invalid {
+    color: red;
+  }
+  
+  
+  h1 {
+    width: 70%;
+    margin: auto;
+    margin-top: 130px;
+  }
+  
+  .signup {
+    background-color: white;
+    padding-top: 130px;
+    padding-bottom: 130px;
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    /* Center the box horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .center-func {
+    width: 70%;
+    margin: auto;
+  }
+  
+  .signup h1 {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px;
+    text-align: left;
+  }
+  
+  .container p {
+    margin-bottom: 10px;
+  }
+  
+  h1 {
+    align-content: end;
+    margin-top: 40px;
+  }
+  
+  form {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  
+  #txtUsername,
+  #txtPassword,
+  #txtFullName,
+  #confirm-password,
+  #date,
+  #gender,
+  #txtCountry {
+    display: flex;
+    flex-direction: row;
+    mix-blend-mode: normal;
+    border-color: gray;
+    border-radius: 90px;
+    border: 1px solid #B4B4B4;
+    border-radius: 60px;
+    margin-top: 5px;
+    text-align: left;
+    background: #f1f0f0;
+    padding: 7px;
+    width: 200px;
+    font-size: 15px;
+  }
+  
+  #txtFullDescription {
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid #B4B4B4;
+    /* text-align: left; */
+    padding: 10px;
+    width: 400px;
+    min-height: 100px;
+    margin-top: 5px;
+    background: #f1f0f0;
+    vertical-align: top;
+  }
+  
+  .flex-col.mb {
+    margin-bottom: 30px;
+  }
+  
+  
+  .flex-col .avatar-label {
+    display: inline-block;
+    flex-basis: 10%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    align-content: space-between;
+  }
+  
+  .avatarcss {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-basis: 10%;
+  
+  }
+  
+  .avatarcss label {
+    text-align: center;
+  }
+  
+  .avatarcss input[type="radio"] {
+    display: none;
+  }
+  
+  .avatar_signup {
+    border-radius: 50%;
+  }
+  
+  .avatarcss label {
+    margin-top: 10px;
+    flex-basis: 20%;
+    /* margin-right: 10px; */
+    box-sizing: border-box;
+  
+  }
+  
+  .avatarcss input[type="radio"]:checked+img {
+    border: 2px solid black;
+  }
+  
+  
+  .signup button[type="submit"] {
+    display: flex;
+    flex-direction: row;
+    mix-blend-mode: normal;
+    border-color: gray;
+    border-radius: 90px;
+    border: 1px solid #B4B4B4;
+    border-radius: 60px;
+    text-align: left;
+    background: black;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: auto;
+  }
+  
+  #password-error,
+  #password-error-btn {
+    color: red;
+    font-size: 12px;
+    min-height: 20px;
+    min-width: 10px;
+  }
+  
+  #password-error-btn {
+    text-align: center;
+    min-height: 20px;
+    min-width: 10px;
+  }
+  
+  #password-matched {
+    color: rgb(99, 155, 39);
+    font-size: 12px;
+    height: 20px;
+    width: 10px;
+  }
+  
+  @media (max-width: 1260px) {
+    body {
+      background-image: url("/images/signup.JPG"), none;
+  
+    }
+  
+    .signup {
+      padding-right: 0;
+    }
+  
+    .container p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    form {
+      margin-top: 10px;
+    }
+  
+    #txtUsername,
+    #txtPassword,
+    #txtFullName,
+    #date,
+    #gender,
+    #txtCountry,
+    #txtFullDescription,
+    .createacccss {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .mb-description {
+      margin-bottom: 60px;
+    }
+  
+    .flex-col.mb {
+      margin-bottom: 20px;
+    }
+  
+    .flex-col .avatar-label {
+      margin-right: 10px;
+    }
+  
+    .avatarcss label {
+      flex-basis: 15%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      background-image: url("/images/signup.JPG"), none;
+  
+    }
+  
+    .signup {
+      padding-right: 0;
+    }
+  
+    .container p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    form {
+      margin-top: 10px;
+    }
+  
+    #txtUsername,
+    #txtPassword,
+    #txtFullName,
+    #date,
+    #gender,
+    #txtCountry,
+    #txtFullDescription,
+    .createacccss {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .mb-description {
+      margin-bottom: 60px;
+    }
+  
+    .flex-col.mb {
+      margin-bottom: 20px;
+    }
+  
+    .flex-col .avatar-label {
+      margin-right: 10px;
+    }
+  
+    .avatarcss label {
+      flex-basis: 40%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    body {
+      background-image: url("/images/signup.JPG"), none;
+  
+    }
+  
+    .signup {
+      padding-right: 0;
+    }
+  
+  
+    .container p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    form {
+      margin-top: 10px;
+    }
+  
+    #txtUsername,
+    #txtPassword,
+    #txtFullName,
+    #date,
+    #gender,
+    #txtCountry,
+    #txtFullDescription,
+    .createacccss {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .mb-description {
+      margin-bottom: 60px;
+    }
+  
+    .flex-col.mb {
+      margin-bottom: 20px;
+    }
+  
+    .flex-col .avatar-label {
+      margin-right: 10px;
+    }
+  
+    .avatarcss label {
+      flex-basis: 25%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 100px) {
+    body {
+      background-image: url("/images/signup.JPG"), none;
+  
+    }
+  
+    .signup {
+      padding-right: 0;
+    }
+  
+    .container p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    form {
+      margin-top: 10px;
+    }
+  
+    #txtUsername,
+    #txtPassword,
+    #txtFullName,
+    #date,
+    #gender,
+    #txtCountry,
+    #txtFullDescription,
+    .createacccss {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .mb-description {
+      margin-bottom: 60px;
+    }
+  
+    .flex-col.mb {
+      margin-bottom: 20px;
+    }
+  
+    .flex-col .avatar-label {
+      margin-right: 10px;
+    }
+  
+    .avatarcss label {
+      flex-basis: 40%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }

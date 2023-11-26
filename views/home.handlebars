@@ -1,0 +1,151 @@
+    <script src="/js/home.js"></script>
+
+	<div class="intro">
+			<section id="tm-section-1">                        
+				<div class="tm-section-1-inner">
+                    <div class="logo">
+					    {{!-- <img src="images/tm-lumino-logo.png" alt="Logo"> --}}
+                    </div>
+					<h1 class="slogen">Find Everything You Want</h1>
+					<a href="#content" class="tm-intro-link">Begin</a>    
+				</div>                                               
+		   </section>
+	</div>
+
+
+<div class="container">
+
+    <div class="content" id="content">
+        <div class="left">
+            <div id="content-sort">
+                <h1>Articles</h1>
+
+                <div id="sort-function">
+                    <button class="sort_btn" id="datetime_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M384-264v-72h192v72H384ZM240-444v-72h480v72H240Zm-96-180v-72h672v72H144Z"/></svg>
+                        <span> Datetime</span>
+                    </button>
+                    <button class="sort_btn" id="username_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m96-288 144.28-384H323l144 384h-80l-32.372-92H208l-32 92H96Zm135-158h100l-48-143h-4l-48 143Zm304 158v-73l195-242H544v-69h270v73L621-357h195v69H535ZM360-744l120-120 120 120H360ZM480-96 360-216h240L480-96Z"/></svg>
+                        <span>Username</span> 
+                    </button>
+                    <button class="sort_btn" id="title_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m96-288 144.28-384H323l144 384h-80l-32.372-92H208l-32 92H96Zm135-158h100l-48-143h-4l-48 143Zm304 158v-73l195-242H544v-69h270v73L621-357h195v69H535ZM360-744l120-120 120 120H360ZM480-96 360-216h240L480-96Z"/></svg>
+                        <span>Title</span> 
+                    </button>
+                </div>
+
+            </div>
+            <div id="sorted_area">
+            {{#each articles}}
+                <div class="item">
+                        <a href="./articles/{{this.id}}" class="item-img">
+
+                            <div >   
+                                <img src="{{this.cover_url}}" alt="Image" class="img-responsive">                            
+                            </div>
+                        </a>                           
+                        <div class="item-info"> 
+                            <h2><a href="./articles/{{this.id}}" title="{{this.title}}">{{this.title}}</a></h2>
+                
+                        
+                            <div class="user">
+                                <a href="./account/{{this.user_id}}">
+                                <div class="avatar">
+                                
+                                    <img src="{{this.avatar_url}}" width="24px" height="24px" alt="" id="avatar" class="user_avatar"> 
+                                </div>
+                                
+                                <div class="username">
+                                    <p>{{this.author}}</p>
+                                </div>
+                                </a>
+                
+                            </div>
+                            
+                            <div class="icon">
+                                <div class="home_timestamp">{{this.datetime}}</div>
+                                <div class="home_icon">
+                                <div class="comment">
+                                   <a href="./articles/{{this.id}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="M107.694 746.767V231.386q0-15.039 10.673-25.212t25.712-10.173h497.46q14.038 0 24.711 10.173 10.673 10.173 10.673 25.212v338.46q0 14.038-10.673 24.711-10.673 10.673-24.711 10.673H252.231L107.694 746.767Zm179.922 33.846q-14.039 0-24.712-10.673t-10.673-24.711V689.23H748.23l12.693 12.693V337h54.998q15.039 0 25.712 10.673t10.673 25.711V922.15L710.769 780.613H287.616ZM612.924 260H171.693v334.848l54.616-53.617h386.615V260Zm-441.231 0v334.848V260Z"></path></svg>
+                                    <span id="com_num"> {{this.comment_cnt}} </span>
+                                    </a>
+                                </div>
+
+                                <div class="like">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="m480 885.075-36.153-32.691q-98.461-88.231-162.5-150.577-64.038-62.346-100.576-109.923-36.539-47.577-50.654-86.269-14.116-38.692-14.116-78.615 0-80.153 55.423-135.576Q226.847 236.001 307 236.001q49.385 0 95 23.501 45.615 23.5 78 67.269 32.385-43.769 78-67.269 45.615-23.501 95-23.501 80.153 0 135.576 55.423Q843.999 346.847 843.999 427q0 39.923-13.616 77.615-13.615 37.692-50.154 84.769-36.538 47.077-100.884 110.423-64.346 63.346-165.192 154.577L480 885.075ZM480 815q93-83.385 153-142.077 60-58.692 95.5-102.192 35.5-43.5 49.5-77.308 14-33.808 14-66.423 0-59-40-99t-99-40q-35.385 0-66.077 14.885-30.692 14.884-61.154 47.808l-35 41h-21.538l-35-41q-30.846-33.308-62.346-48.001Q340.385 288 307 288q-58.615 0-98.808 40Q168 368 168 427q0 32.615 13 64.923t47.5 75.308q34.5 43 95 102T480 815Zm0-264Z"></path></svg>
+                                    <span id="like_num"> {{this.likes}} </span>
+                                </div>
+                                </div>
+                            </div>                                
+                        </div>                  
+                </div>
+           
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="right">
+           {{#if user}}
+            <div class="log_in">
+                <div class="avatar">
+
+                    <a href="/account/{{user.user_id}}"><img src="{{user.avatar_url}}" width="100px" height="100px" alt="" id="home_avatar"> </a>
+
+                    
+                </div>
+                <div >
+                    <h3 class="log_text"> {{user.username}}</h3>
+                </div>
+                <div id="fbtn">
+                 <div class="log_btn">
+                   <a href="/account/{{user.user_id}}"><button class="lbnt">Me</button>
+                   </a> 
+                </div>
+
+                <div class="text_btn">
+                   <a href="/article_editor"><button class="lbnt">Go Create </button></a> 
+                </div>
+                
+                </div>
+            </div>
+            {{else}}
+
+            <div class="log_in">
+                <div class="avatar">
+                    <img src="images/tm01.jpg" width="80px" height="80px" alt="" id="home_avatar"> 
+                </div>
+                <div class="log_text">
+                    <p> <a href="/login">Log in </a> to find more</p>
+                </div>
+                <div class="log_btn">
+                   <a href="/login"><button class="lbnt">Log In</button></a> 
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="list">
+                <div >
+            <h1> <span class="rank"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M280-880h400v333q0 23-11.5 42T637-474l-141 82 26 97h134l-109 81 42 134-109-81-110 81 42-134-109-81h135l25-97-140-82q-20-12-31.5-31T280-547v-333Zm174 60v350l30 16 30-16v-350h-60Z"/ fill="gold"></svg></span>Top 5 </h1>
+            </div>
+            
+                {{#each top5Article}}
+                <div class="line"></div>
+                <div class="top" ><a href="/articles/{{id}}" class="topList"><h3>{{title}}</h3>{{username}}</a></div>
+                {{/each}}
+            
+            </div>
+
+        
+
+            </div>
+
+        </div>
+    
+
+    </div>
+	
+
+
+</div>

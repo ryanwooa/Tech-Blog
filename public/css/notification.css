@@ -1,0 +1,101 @@
+body{
+    background-color: #d9d9d9;
+}
+
+.left{
+    background-color: #fff;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    /* border-radius: 5px; */
+}
+
+.left h2{
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    /* border-radius: 5px; */
+}
+
+.single_notify{
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0px 0px 6px  rgba(0, 0, 0, 0.20);
+    /* margin: 5px 0; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: all 0.3s ease;  
+    align-items: center;
+}
+.notify_avatar{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.single_notify:hover{
+    padding-left: 30px;
+}
+
+.noti_check_btn{
+    background-color: rgb(0, 0, 0);
+    height: 32px;
+    width: 100px;
+    border-radius: 16px;
+    outline: none;
+    color: white;
+    font-size: 15px;
+   
+}
+
+.check-notification{
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    cursor: default;
+}
+
+.noti-time{
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+
+/* sidebar */
+.container {
+    margin: 0 auto;
+      display: grid;
+      grid-template-columns: 8fr 2fr;
+      grid-row-gap: 20px;
+      column-gap:30px;
+}
+
+.sidebar {
+    position: sticky;
+    width: 150px; 
+    top: 110px; 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid #d9d9d9;
+    background-color: white;
+    padding: 20px;
+    z-index: 10;
+    margin: auto;
+}
+
+.rolling-box{
+    margin: auto;
+  }
+  .rolling-item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+  }
+  .rolling-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+    
+  }
+  .rolling-center{
+    position: relative;
+    top: -5px;
+  }

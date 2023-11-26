@@ -1,0 +1,162 @@
+nav {
+  background-color: rgb(0, 0, 0);
+  position: fixed; 
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  transition: 0.4s;
+  align-items: center;
+  z-index: 100;
+}
+
+
+#logobox {
+  height: 60px;
+}
+
+.navlog {
+  position: relative;
+  margin-right: 40px;
+  padding-top: 3px;
+}
+
+.navhoverbox{
+  visibility: hidden;
+  position: absolute;
+  color: #000000;
+  top:38px;
+  left: 2px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+#navboxup{
+  width: 0;
+  border: 10px  solid transparent;
+  border-bottom: 10px solid black;
+
+}
+
+#navbox{
+  position: relative;
+  left: -155px;
+  width: 300px;
+  min-height: 20px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  overflow: auto;
+  max-height: 500px;
+}
+
+#navbox::-webkit-scrollbar{
+  width: 10px;
+  background-color: #000000;
+  color: white;
+  border-radius : 0px 12px 12px 0px;
+}
+
+
+#navbox::-webkit-scrollbar-thumb {
+  background-color: rgb(130, 130, 130); 
+  border-radius: 5px; 
+}
+
+.notify-history-button:hover   .navhoverbox {
+  visibility: visible;
+  opacity: 1; 
+}
+
+.nav_numbers{
+  text-decoration: underline;
+}
+.navhome ul {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.navlog li a {
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+  padding-top: 1px;
+}
+
+nav .logo {
+  height: 40px;
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+.navhome.scrolled {
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+}
+
+.home{
+  background-color: rgba(0, 0, 0, 0.37);
+}
+#home{
+  position: relative;
+  margin-left: 30px;
+  font-size: 17px;
+  color: #ffffff;
+  top: -5px;
+  
+}
+#nav_avatar{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+#log_a{
+  display: flex;
+  align-items: baseline;
+}
+
+#nav-point{
+    min-width: 16px;
+    height: 16px;
+    background-color: #ff0000; 
+    z-index: 1000;
+    border-radius: 8px;
+    position: absolute;
+    left: 13px;
+    top: 0px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 16px;
+    padding: 0px 2px; 
+}
+
+.unread-noti-avatar{
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.unread-noti-item{
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.u-noti-time{
+  color: #696868;
+  font-size: 12px;
+}
+
+.unread-noti-item{
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "cs719-final-project-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.0-alpha3",
+    "brcypt": "^1.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "encrypt": "^0.0.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.3",
+    "formidable": "^2.1.1",
+    "fs-extra": "^11.1.1",
+    "jimp": "^0.22.8",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0",
+    "sql-template-strings": "^2.2.2",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/express-handlebars": "^6.0.0"
+  }
+}

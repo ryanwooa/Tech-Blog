@@ -1,0 +1,181 @@
+{{!-- 
+ <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+            <script src="/js/analytics.js"></script> --}}
+
+
+<div class="gray-bgc"></div>
+
+<div class="container">
+    <div class="left">
+        <div class="info-content">
+            
+             <div id="avator">
+                <img src="{{user.avatar_url}}" alt="User Avatar">
+                <div class="nameNcountry">
+                <div id="name"><h2>{{user.realname}}</h2></div>
+                <div>{{country}}</div>
+                </div> 
+             </div>
+           
+                <div class="description">
+                {{user.description}}
+                </div>
+                <div class="analytic-data">
+                    <div id="follow">
+                        <a href="../subscriptions/{{user.user_id}}">
+                        <div>{{totalFollowers}}</div>
+                        <div > Followers</div>
+                        
+                        </a>
+                    </div>
+                    <div id="comment">
+                    <a href="/comments/{{user.user_id}}">
+                     <div> {{totalComments}}</div>
+                   <div> Comments </div>
+                   
+                   </a>
+                    </div>
+                    <div id="like">
+                    <a href="/likes/{{user.user_id}}">
+                     <div> {{totalLikes}}</div>
+                    <div>Likes </div>
+                   
+                   </a>
+                    </div>
+                </div>
+
+
+        </div>
+   
+    <div class="content-container">
+
+        <div class="top-articles">
+            <div class="nav-bar">
+                <h3>Your Top 3 Popular Articles:</h3>
+            </div>
+            
+                {{#each top3PopularArticles}}
+                <div class="article-item">
+                     
+                    <div class="img-div">  
+                        <a href="/articles/{{this.id}}">
+                    <img src="{{this.cover_url}}" alt="Article image" class="article-image">
+                    </a>
+                    </div>
+                  
+
+                    <div class="article-content">
+                        <div class="articles-title">
+                        <a href="/articles/{{this.id}}"><h3>{{this.title}}</h3></a>
+                        </div>
+                        <div class="article-data">
+                            <div id="time">{{this.datetime}}</div>
+                            <div class="popular">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m422-232 207-248H469l29-227-185 267h139l-30 208Zm-78.921 129.691 40-277.692H198.08l329.613-475.766h49.228l-39.615 315.768h219.999l-364.998 437.69h-49.228ZM471-470Z"/></svg>
+                                <span class="nmb">{{this.popularity}}</span>
+                            </div>
+                            <div class="comment">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M284.616-275.387q-15.039 0-25.212-10.173t-10.173-25.211v-59.999H744.23l12.693 12.693V-720h59.998q15.039 0 25.212 10.173t10.173 25.211v550.766L710.769-275.387H284.616Zm-176.922-33.846v-515.381q0-15.039 10.173-25.212t25.212-10.173h498.46q15.038 0 25.211 10.173 10.173 10.173 10.173 25.212v338.46q0 15.038-10.173 25.211-10.173 10.173-25.211 10.173H249.231L107.694-309.233Zm509.23-201.536V-800H167.693v344.617l56.001-55.386h393.23Zm-449.231 0V-800v289.231Z"/></svg>
+                                 <span class="nmb">{{this.comments}}</span>
+
+                            </div>
+                            <div class="like">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m480-146.925-44.153-39.691q-99.461-90.231-164.5-155.077-65.038-64.846-103.076-115.423-38.039-50.577-53.154-92.269-15.116-41.692-15.116-84.615 0-85.153 57.423-142.576Q214.847-833.999 300-833.999q52.385 0 99 24.501 46.615 24.5 81 70.269 34.385-45.769 81-70.269 46.615-24.501 99-24.501 85.153 0 142.576 57.423Q859.999-719.153 859.999-634q0 42.923-15.116 84.615-15.115 41.692-53.154 92.269-38.038 50.577-102.884 115.423T524.153-186.616L480-146.925ZM480-228q96-86.385 158-148.077 62-61.692 98-107.192 36-45.5 50-80.808 14-35.308 14-69.923 0-60-40-100t-100-40q-47.385 0-87.577 26.885-40.192 26.884-63.654 74.808h-57.538q-23.846-48.308-63.846-75.001Q347.385-774 300-774q-59.615 0-99.808 40Q160-694 160-634q0 34.615 14 69.923t50 80.808q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+                                <span class="nmb">{{this.likes}}</span>
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+                {{/each}}
+        
+        </div>
+        <div class="nav-bar">
+            <h3>Daily Track:</h3>
+        </div>
+        <div class="diagram-btn">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="start-date">
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="end-date">
+
+            <button id="submitDateRange">Submit</button>
+        </div>
+       
+
+        <div class="diagram">
+            <div id="chart-container"></div>
+            <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+            <script src="/js/analytics.js"></script>
+        </div>
+
+     </div>
+     </div>
+
+
+
+     <div class="right">
+        <div class="sidebar">
+            <ul class="rolling-box">
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/article_editor">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="m880-560-25-55-55-25 55-25 25-55 25 55 55 25-55 25-25 55ZM760-720l-38-82-82-38 82-38 38-82 38 82 82 38-82 38-38 82ZM360-80q-33 0-56.5-23.5T280-160h160q0 33-23.5 56.5T360-80ZM200-200v-80h320v80H200Zm10-120q-69-41-109.5-110T60-580q0-125 87.5-212.5T360-880q125 0 212.5 87.5T660-580q0 81-40.5 150T510-320H210Zm24-80h252q45-32 69.5-79T580-580q0-92-64-156t-156-64q-92 0-156 64t-64 156q0 54 24.5 101t69.5 79Zm126 0Z">
+                            </path>
+                        </svg>
+                        <span class="rolling-center">Create Center</span>    
+                    </a>
+
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/analytics">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
+                        </svg>
+                <span class="rolling-center">Analytics Center</span> </a>
+                          
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/notification-history">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M80-560q0-88 35.5-166.5T217-862l57 56q-54 47-84 110.5T160-560H80Zm720 0q0-72-30-135.5T686-806l57-56q66 57 101.5 135.5T880-560h-80ZM160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+                        </svg>
+                        <span class="rolling-center"> Notification</span> 
+                       
+                    </a>
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="../subscriptions/{{user.user_id}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="m520-260 140-140q11-11 17.5-26t6.5-32q0-34-24-58t-58-24q-19 0-37.5 11T520-492q-30-28-47-38t-35-10q-34 0-58 24t-24 58q0 17 6.5 32t17.5 26l140 140Zm50 156q-23 23-57 23t-57-23L104-456q-11-11-17.5-26T80-514v-286q0-33 23.5-56.5T160-880h286q17 0 32 6.5t26 17.5l352 353q23 23 23 56.5T856-390L570-104Zm-57-56 286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640ZM160-800Z" />
+                        </svg>
+                        <span class="rolling-center" id="Subscriptions"> Subscriptions</span> 
+                         </a>
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/account/{{user.user_id}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
+                        </svg>
+                        <span class="rolling-center"> Personal Center</span> 
+                        </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+ 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="http://127.0.0.1:3000/css/index.css">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/css/nav.css">
+    <script src="http://127.0.0.1:3000/js/index.js"></script>
+    <link rel="icon" href="http://127.0.0.1:3000/images/icon.png" type="image/x-icon">
+    <title>Your Personal Blog</title>
+ 
+   
+</head>
+
+<body >
+   
+    
+    <nav id="navbar" class="navhome">
+        <div id="logobox" >
+            <a href="http://localhost:3000/" id="log_a">
+                <img src="http://localhost:3000/images/Logo.png" alt="Logo" class="logo">   <span id="home" class="nav_a">Home</span>
+            </a>
+        </div>
+    {{#if user}}
+        <div class="navlog">
+            <ul >
+                <li class="notify-history-button">
+                    <a  href="/notification-history"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" class="nav_icon"><path d="M170.001-205.385v-59.999h80v-290q0-81.462 50.384-144.038 50.385-62.577 129.616-80.269v-28q0-21.154 14.423-35.577 14.422-14.423 35.576-14.423t35.576 14.423q14.423 14.423 14.423 35.577v28q79.231 17.692 129.616 80.269 50.384 62.576 50.384 144.038v290h80v59.999H170.001ZM480-495.384Zm0 407.691q-29.538 0-50.923-21-21.384-21-21.384-51.307h144.614q0 30.307-21 51.307-21 21-51.307 21ZM309.999-265.384h340.002v-290q0-70.616-49.693-120.309Q550.616-725.385 480-725.385q-70.616 0-120.308 49.692Q309.999-626 309.999-555.384v290Z"/fill="#ffffff"></svg></a>
+
+                    <div class="navhoverbox">
+
+                        <div id="navboxup"></div>
+                        <div id="navbox">
+                            {{!-- js update unread notifications --}}
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="/account/{{user.user_id}}"><img src="{{user.avatar_url}}" alt="User Avatar"
+                            id="nav_avatar"><span id="username" class="nav_a">{{user.username}}</span></a></li>
+                <li><a id="logout-link" href="/logout">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                            class="nav_icon">
+                            <path
+                                d="M216.155-120q-30.307 0-51.307-21-21-21-21-51.307v-555.384q0-30.308 21-51.308t51.307-21h268.461V-760H216.155q-4.616 0-8.462 3.846-3.847 3.847-3.847 8.463v555.384q0 4.616 3.847 8.462 3.846 3.846 8.462 3.846h268.461V-120H216.155Zm429.23-179.232-41.537-43.384L701.232-440H364.616v-59.999h336.616l-97.384-97.384 41.537-43.383 170.767 170.767-170.767 170.767Z"
+                                / fill="#ffffff">
+                        </svg>
+                    </a></li>
+
+            </ul>
+            
+        </div>
+    </nav>
+    {{else}}
+        <div class="navlog">
+            <ul>
+                <li><a href="/login">Log in</a></li>
+                <li><a href="/signup">Sign up</a></li>
+            </ul>
+        </div>
+    </nav>
+    {{/if}}   
+
+
+    {{{body}}}
+</body>
+
+</html>

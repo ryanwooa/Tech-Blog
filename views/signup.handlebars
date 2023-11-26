@@ -1,0 +1,165 @@
+<link rel="stylesheet" href="./css/signup.css">
+<script src="http://127.0.0.1:3000/js/signup.js"></script>
+
+<div class="container">
+    {{! Display a message if one was provided. }}
+    {{#if toastMessage}}
+    <p>{{toastMessage}}</p>
+    {{/if}}
+
+    <div class="signup">
+        <h1>Sign Up</h1>
+        <form action="./newAccount" method="POST">
+            <div class="center-func">
+                {{!-- Username --}}
+                <div class="flex-col mb">
+                    <label for="txtUsername">Username</label>
+                    <input type="text" name="username" id="txtUsername" required maxlength="24">
+                    <span id="username-error" class="error"></span>
+                    <div class="usernameAvailability" id="usernameAvailability"></div>
+                </div>
+
+                {{!-- Password --}}
+                <div class="flex-col mb">
+                    <label for="txtPassword">Password</label>
+                    <input type="password" name="password" id="txtPassword" class="txtPassword" required  maxlength="32">
+                </div>
+
+                {{!-- password again --}}
+                <div class="flex-col mb">
+                    <label for="txtPassword">Enter the password again</label>
+                    <input type="password" name="passwors" id="confirm-password" class="txtPassword" required  maxlength="32">
+                    <span id="password-error"></span>
+                    <span id="password-matched">Please keep two passwords same</span>
+                </div>
+
+                {{!-- Real Name --}}
+                <div class="flex-col mb">
+                    <label for="txtName">Full Name</label>
+                    <input type="text" name="fullName" id="txtFullName" required required maxlength="32">
+                </div>
+
+                {{!-- DOB --}}
+                <div class="flex-col mb">
+                    <label for="date">Data of birth</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                {{!-- Gender --}}
+                <div class="flex-col mb">
+                    <label for="txtGender">Gender</label>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                        <option value="transgender">Transgender</option>
+                        <option value="Non-binary/non-conforming">Non-binary/non-conforming</option>
+                        <option value="preferNotToRespond">Prefer not to respond</option>
+                    </select>
+                </div>
+
+                {{!-- Country --}}
+                <div class="flex-col mb">
+                    <label for="txtCountry">Country</label>
+                    <input type="text" name="country" id="txtCountry" required required maxlength="32">
+                </div>
+
+                {{!-- Avatar --}}
+                <div class="">
+                    <label for="txtAvatar">Avatar</label>
+
+                    <div class="flex-col mb avatarcss">
+                        <br>
+                        <label>
+                            <input type="radio" name="avatar" value="1" id="avatar1">
+                            <img class="avatar_signup" src="../images/avatar/avatar1.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="2" id="avatar2">
+                            <img class="avatar_signup" src="../images/avatar/avatar2.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="3" id="avatar3">
+                            <img class="avatar_signup" src="../images/avatar/avatar3.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="4" id="avatar4">
+                            <img class="avatar_signup" src="../images/avatar/avatar4.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="5" id="avatar5">
+                            <img class="avatar_signup" src="../images/avatar/avatar5.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="6" id="avatar6">
+                            <img class="avatar_signup" src="../images/avatar/avatar6.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="7" id="avatar7">
+                            <img class="avatar_signup" src="../images/avatar/avatar7.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="8" id="avatar8">
+                            <img class="avatar_signup" src="../images/avatar/avatar8.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="9" id="avatar9">
+                            <img class="avatar_signup" src="../images/avatar/avatar9.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="10" id="avatar10">
+                            <img class="avatar_signup" src="../images/avatar/avatar10.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="11" id="avatar11">
+                            <img class="avatar_signup" src="../images/avatar/avatar11.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="12" id="avatar12">
+                            <img class="avatar_signup" src="../images/avatar/avatar12.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="13" id="avatar13">
+                            <img class="avatar_signup" src="../images/avatar/avatar13.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="14" id="avatar14">
+                            <img class="avatar_signup" src="../images/avatar/avatar14.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                        <label>
+                            <input type="radio" name="avatar" value="15" id="avatar15">
+                            <img class="avatar_signup" src="../images/avatar/avatar15.jpeg" alt="Avatar image"
+                                style="width:100px;height:100px;">
+                        </label>
+                    </div>
+                </div>
+
+                {{!-- Description --}}
+                <div class="flex-col mb mb-description">
+                    <label for="txtDescription">Description</label>
+                    <textarea name="description" id="txtFullDescription" cols="30" rows="5" maxlength="200"></textarea>
+                    {{!-- <input type="text" name="description" id="txtFullDescription" required> --}}
+                </div>
+            </div>
+            {{!-- Submit --}}
+            <div class="flex-row justify-sb align-center">
+                <div id="password-error-btn"> </div>
+                <button type="submit" id="submit">Create account</button><br>
+            </div>
+        </form>
+    </div>
+
+</div>

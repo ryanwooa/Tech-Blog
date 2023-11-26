@@ -1,0 +1,164 @@
+<div class="container">
+    <div class="left">
+    <h2>Comments</h2>
+
+    {{#each comments}}
+    <div class="comment">
+        <div class="content">
+            <div>
+                <img src="{{this.avatar_url}}" alt="User Avatar">
+                <span><a href="/account/{{this.user_id}}"> {{this.username}}</a></span>
+            </div>
+
+             <div class="comment_text"><p>{{this.content}}</p></div>
+            <div class="noti-time">{{this.datetime}}</div>
+        </div>
+        <button class="view"><a href="/articles/{{this.article_id}}">Read</a></button>
+    </div>
+    {{/each}}
+    </div>
+      {{#if isMyAccount}}
+
+      <div class="right">
+        <div class="sidebar">
+            <ul class="rolling-box">
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/article_editor">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="m880-560-25-55-55-25 55-25 25-55 25 55 55 25-55 25-25 55ZM760-720l-38-82-82-38 82-38 38-82 38 82 82 38-82 38-38 82ZM360-80q-33 0-56.5-23.5T280-160h160q0 33-23.5 56.5T360-80ZM200-200v-80h320v80H200Zm10-120q-69-41-109.5-110T60-580q0-125 87.5-212.5T360-880q125 0 212.5 87.5T660-580q0 81-40.5 150T510-320H210Zm24-80h252q45-32 69.5-79T580-580q0-92-64-156t-156-64q-92 0-156 64t-64 156q0 54 24.5 101t69.5 79Zm126 0Z">
+                            </path>
+                        </svg>
+                        <span class="rolling-center">Create Center</span>    
+                    </a>
+
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/analytics">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
+                        </svg>
+                <span class="rolling-center">Analytics Center</span> </a>
+                          
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/notification-history">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M80-560q0-88 35.5-166.5T217-862l57 56q-54 47-84 110.5T160-560H80Zm720 0q0-72-30-135.5T686-806l57-56q66 57 101.5 135.5T880-560h-80ZM160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+                        </svg>
+                        <span class="rolling-center"> Notification</span> 
+                       
+                    </a>
+                </li>
+
+                <li class="rolling-item">
+                    <a class="rolling-link" href="../subscriptions/{{page_user.user_id}}">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="m520-260 140-140q11-11 17.5-26t6.5-32q0-34-24-58t-58-24q-19 0-37.5 11T520-492q-30-28-47-38t-35-10q-34 0-58 24t-24 58q0 17 6.5 32t17.5 26l140 140Zm50 156q-23 23-57 23t-57-23L104-456q-11-11-17.5-26T80-514v-286q0-33 23.5-56.5T160-880h286q17 0 32 6.5t26 17.5l352 353q23 23 23 56.5T856-390L570-104Zm-57-56 286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640ZM160-800Z" />
+                        </svg>
+                        <span class="rolling-center"> Subscriptions</span> 
+                         </a>
+                </li>
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/account/{{user.user_id}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path
+                                d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
+                        </svg>
+                        <span class="rolling-center"> Personal Center</span> 
+                        </a>
+                </li>
+                {{#if user.is_admin}}
+                <li class="rolling-item">
+                    <a class="rolling-link" href="/api/users">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M71.925-187.694v-88.922q0-30.923 15.962-55.191 15.961-24.269 42.632-37.764 57.021-27.89 114.674-43.005 57.654-15.115 126.731-15.115t126.73 15.115q57.654 15.115 114.675 43.005 26.671 13.495 42.632 37.764 15.961 24.268 15.961 55.191v88.922H71.925Zm679.997 0v-93.845q0-39.384-19.286-75.069-19.287-35.685-54.712-61.237 40.23 6 76.383 18.577 36.153 12.577 68.999 29.73 31 16.538 47.884 38.984 16.885 22.447 16.885 49.015v93.845H751.922ZM371.924-492.309q-57.749 0-98.874-41.124-41.125-41.125-41.125-98.874 0-57.75 41.125-98.874 41.125-41.125 98.874-41.125 57.749 0 98.874 41.125 41.124 41.124 41.124 98.874 0 57.749-41.124 98.874-41.125 41.124-98.874 41.124Zm345.381-139.998q0 57.749-41.125 98.874-41.125 41.124-98.874 41.124-6.769 0-17.23-1.538t-17.23-3.384q23.662-28.447 36.369-63.117t12.707-72.007q0-37.336-12.961-71.721Q566-738.46 542.846-767.383q8.615-3.077 17.23-4t17.23-.923q57.749 0 98.874 41.125 41.125 41.124 41.125 98.874Z"/></svg>
+                        <span class="rolling-center"> All Users</span> 
+                        </a>
+                </li>
+                {{/if}}
+
+
+
+            </ul>
+        </div>
+    </div>
+    
+    {{else}}
+        <div class="right">
+            <div id="right-sidebar">
+                <div>
+                    <img class="right_avatar" src={{page_user.avatar_url}} alt="User Avatar">
+
+                </div>
+                <a id="right-link" href="/account/{{page_user.user_id}}">{{page_user.username}}</a>
+                <div class="right-article-subscription">
+                   <button id="right-subscribe-button" data-authorId={{page_user.user_id}}>Follow</button>
+
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <script>
+                const subscribeButton2 = $('#right-subscribe-button');
+                const authorId = $('#right-subscribe-button').data("authorid");
+
+                 $.ajax({
+                    url: `/isSubscribed/${authorId}`,
+                    method: 'GET',
+                    success: function (res) {
+                        if (res.status === 1) {
+                            subscribeButton2.text('Unsubscribe');
+                        } else {
+                            subscribeButton2.text('Subscribe');
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(`AJAX Error: ${textStatus}\n${errorThrown}`);
+                    }
+
+                });
+  
+                    subscribeButton2.click(function () {
+                    const currentAction = subscribeButton2.text();
+                    let method = 'POST';
+                    if (currentAction === 'Unsubscribe') {
+                        method = 'DELETE';
+                    }
+                    $.ajax({
+                        url: `/subscribe/${authorId}`,
+                        method: method,
+                        success: function (res) {
+                            if (res.status === 1) {
+                                if (method === 'POST') {
+                                    subscribeButton2.text('Unsubscribe');
+                                } else {
+                                    subscribeButton2.text('Subscribe');
+                                    // console.log('Subscribe button clicked');
+
+                                }
+                                // alert(res.message);
+                            } else {
+                                alert("Subscription action failed, please try again later");
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(`AJAX Error: ${textStatus}\n${errorThrown}`);
+                        }
+
+                    });
+                });
+
+            </script>
+        </div>
+
+
+
+
+    {{/if}}
+</div>
+
