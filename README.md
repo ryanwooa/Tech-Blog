@@ -1,7 +1,7 @@
-# PGCert IT Final Project: Personal Blogging System
+# Personal Blogging System
 
 ## Introduction
-The members of Group 2 Final Project include:
+The members of group include:
 - Ryan Wu
 - Xinran Wang
 - Chaohao Huang
