@@ -27,33 +27,3 @@ Users receive notifications for a variety of platform actions. These events incl
 The analytics dashboard is a useful tool for authors to track the readership of their articles and other engagement-related information. The top three most popular posts, key performance indicators, and a histogram graphic displaying the average number of comments per day over time are all displayed.
 
 
----
-
-# Before you start
-## Initialize Database
-1. Start the server
-```
-npm i
-npm start
-```
-2. Then the database will be initialized. Use sql script in ```/sql/project-database-init-script.sql``` to setup the database.
-
-## Default settings 
-We have 2 default accounts.
-
-## user1 (admin user)
-```
-username: user1
-
-password: password1
-```
-
-## user2
-```
-username: user2
-
-password: password2
-```
-
-You can log in and check their information. The user1 account has an extra link in the right nav bar which called "All users", when you click this link, you can view all user’s information including their usernames, real names, countries, avatars and descriptions. Also, user1 has the delete other users’ articles, comments even account function. When user1 delete other user’s account, it will automatically delete their notifications, comments, likes and articles. Finally, you can log in the default account to start exploring our blog website.
-
