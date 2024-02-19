@@ -1,4 +1,4 @@
-# Personal Blogging System
+# Personal Blog System
 
 ## Introduction
 The members of group include:
